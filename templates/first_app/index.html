@@ -10,7 +10,20 @@
     </head>
     <body>
         <h1>Hello this is index.html</h1>
-        {{ insert_content }}
         <img src="{% static 'images/car.jpg' %}" alt="example images" />
+        <h2>Record lists</h2>
+        {% if records %}
+        <div>
+            {% for record in records %}
+            <div>
+                <span>{{ record.name }}</span>
+                <a href="{{ record.url }}">{{ record.url }}</a>
+                <span>{{ record.date }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div>no records</div>
+        {% endif %}
     </body>
 </html>
