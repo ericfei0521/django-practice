@@ -1,12 +1,12 @@
 from django import forms
-from .models import User
+from .models import UserProfileInfo
 
 
 class UserSignUp(forms.ModelForm):
     verify_email = forms.EmailField(label="Verify Email")
 
     class Meta:
-        model = User
+        model = UserProfileInfo
         fields = "__all__"
 
     def clean(self):
