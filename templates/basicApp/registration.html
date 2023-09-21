@@ -9,13 +9,17 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-        <title>Sign up</title>
+        <title>Registration</title>
     </head>
     <body>
-        <h1>Sign up</h1>
-        <form method="post">
-            {{ form.as_p }} {% csrf_token %}
-            <input type="submit" value="Submit" class="btn btn-primary" />
+        <h1>Registration</h1>
+        {% if registered %}
+        <h1>Thanks for registering</h1>
+        {% else %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
+            <input type="submit" value="Register" class="btn btn-primary" />
         </form>
+        {% endif%}
     </body>
 </html>

@@ -1,20 +1,17 @@
 from django import forms
+from django.contrib.auth.models import User
 from .models import UserProfileInfo
 
 
-class UserSignUp(forms.ModelForm):
-    verify_email = forms.EmailField(label="Verify Email")
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
+        model = User
+        fields = ("username", "email", "password")
+
+
+class UserProfileInfoForm(forms.ModelForm):
+    class Meta:
         model = UserProfileInfo
-        fields = "__all__"
-
-    def clean(self):
-        cleaned_data = super().clean()
-        email = cleaned_data.get("email")
-        verify_email = cleaned_data.get("verify_email")
-
-        if email != verify_email:
-            raise forms.ValidationError("Email addresses do not match.")
-
-        return cleaned_data
+        fields = ("profile_link", "profile_pic")

@@ -6,5 +6,5 @@ app_name = "formapp"
 urlpatterns = [
     re_path(r"^$", views.index, name="index"),
     path("", views.index, name="index"),
-    re_path(r"^user/", views.user, name="user"),
+    path("register/", views.register, name="register"),
 ]
