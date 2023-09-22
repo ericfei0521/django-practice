@@ -136,6 +136,8 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOTS = MEDIA_DIR
 MEDIA_URL = "media/"
+
+LOGIN_URL = "formapp/user_login"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

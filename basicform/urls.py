@@ -22,4 +22,5 @@ urlpatterns = [
     re_path(r"^$", views.index, name="index"),
     path("admin/", admin.site.urls),
     re_path(r"^formapp/", include("formapp.urls")),
+    path("logout/", views.user_logout, name="logout"),
 ]

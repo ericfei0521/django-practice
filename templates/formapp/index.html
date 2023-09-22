@@ -16,6 +16,11 @@
             <div class="p-5 mb-4 bg-body-tertiary rounded-3">
                 <h1>Welcome to the HomePage</h1>
                 <a href="{% url 'formapp:register' %}">Signup</a>
+                {% if user.is_authenticated %}
+                <a href="logout">logout</a>
+                {% else %}
+                <a href="{% url 'formapp:user_login' %}">login</a>
+                {% endif %}
             </div>
         </div>
     </body>

@@ -7,4 +7,5 @@ urlpatterns = [
     re_path(r"^$", views.index, name="index"),
     path("", views.index, name="index"),
     path("register/", views.register, name="register"),
+    path("login/", views.user_login, name="user_login"),
 ]
